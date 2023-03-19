@@ -1,11 +1,13 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import PatientCard from './patientCard';
+import PatientsList from './patientsList';
+import './style.scss';
 
 const PatientsPage = () => {
   return (
-    <Box className="page">
-      <Typography variant="h6" fontWeight={600}>
-        Patients Page
-      </Typography>
+    <Box className="page patients-page">
+      <PatientsList />
+      <PatientCard />
     </Box>
   );
 };

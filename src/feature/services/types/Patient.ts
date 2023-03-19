@@ -1,12 +1,11 @@
 interface Patient {
-  id: number,
-  avatar?: string,
-  name: string,
-  surname: string,
+  id: number;
+  avatar?: string;
+  name: string;
+  surname: string;
   pesel: string;
-  dateOfBirth: Date,
-  
+  dateOfBirth: Date;
+  phoneNumber: string;
 }
-
 
 export default Patient;

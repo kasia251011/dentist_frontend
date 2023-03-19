@@ -10,6 +10,17 @@ const theme = createTheme({
     fontFamily: 'Poppins',
     allVariants: {
       color: '#383838'
+    },
+    h2: {
+      fontSize: '1.25rem',
+      fontWeight: 600,
+      marginBottom: '24px'
+    },
+    h3: {
+      fontSize: '1.1rem',
+      fontWeight: 600,
+      marginBottom: '15px',
+      color: '#08272B'
     }
   },
   palette: {
