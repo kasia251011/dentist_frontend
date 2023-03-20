@@ -1,0 +1,29 @@
+.patient-details {
+  width: 250px;
+  background-color: #D4F3F7;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .label {
+    width: 100%;
+    color: #08272B;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .text {
+    width: 100%;
+    color: #187581;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+
+  .text:hover {
+    background-color: #EEFAFC;
+    cursor: pointer;
+  }
+}

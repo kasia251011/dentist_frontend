@@ -1,0 +1,45 @@
+.side-nav-bar {
+  background-color: #104E56;
+  height: 100vh;
+  position: fixed;
+  width: 100px;
+  padding-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logo {
+    width: 50px;
+  }
+
+  .side-nav-item {
+    margin-top: 40px; 
+    color: #187581;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+
+  .side-nav-item--clicked {
+    background-color: white;
+    color: #104E56;
+    margin-top: 40px; 
+    border-color: transparent;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+
+  .side-nav-item:hover {
+    color: #209CAC;
+    background-color: #187581;
+    cursor: pointer;
+  }
+}
