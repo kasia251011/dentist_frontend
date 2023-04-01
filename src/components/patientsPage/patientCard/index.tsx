@@ -5,8 +5,12 @@ import PatientDetails from './patientDetails';
 import './style.scss';
 
 const PatientCard = () => {
-  const { data: patient } = useGetPatientByIdQuery(1);
-  console.log(patient);
+  const { data: patient, isError } = useGetPatientByIdQuery(1);
+
+  if (isError) {
+    return <></>;
+  }
+
   return (
     <Box className="patient-card">
       <PatientDetails patient={patient} />

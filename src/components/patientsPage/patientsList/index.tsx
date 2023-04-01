@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -11,15 +12,32 @@ import {
   Typography
 } from '@mui/material';
 import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
+import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
 import { useGetPatientsQuery } from '../../../feature/services/patientApi';
 import { getAge } from '../../../utilities';
+import SERVER_ERROR_IMG from '../../../assets/500 Internal Server Error.svg';
+import './style.scss';
 
 const PatientsList = () => {
-  const { data: patients } = useGetPatientsQuery();
+  const { data: patients, isError } = useGetPatientsQuery();
+
+  if (isError) {
+    return (
+      <Box className="server-error">
+        <img src={SERVER_ERROR_IMG} />
+        <Typography>You are not connected to the server</Typography>
+      </Box>
+    );
+  }
 
   return (
-    <Box>
-      <Typography variant="h2">Your patients</Typography>
+    <Box className="patients-list">
+      <Box className="header">
+        <Typography variant="h2">Your patients</Typography>
+        <IconButton color="primary">
+          <PersonAddRoundedIcon />
+        </IconButton>
+      </Box>
       <TableContainer component={Paper} sx={{ width: 650 }}>
         <Table>
           <TableHead>

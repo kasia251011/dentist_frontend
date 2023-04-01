@@ -1,10 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { patientApi } from './services/patientApi'
+import { configureStore } from '@reduxjs/toolkit';
+import { patientApi } from './services/patientApi';
 
 export const store = configureStore({
   reducer: {
-    [patientApi.reducerPath]: patientApi.reducer,
+    [patientApi.reducerPath]: patientApi.reducer
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(patientApi.middleware),
-})
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(patientApi.middleware)
+});

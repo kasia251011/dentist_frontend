@@ -7,7 +7,8 @@ import PATH from './paths';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (<>
+    element: (
+      <>
         <SideNavBar />
         <Outlet />
       </>
