@@ -12,11 +12,3 @@ export const store = configureStore({
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-
-export const store = configureStore({
-  reducer: {
-    [patientApi.reducerPath]: patientApi.reducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(patientApi.middleware),
-})
