@@ -1,18 +1,15 @@
-.patients-list {
-    .header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
 .server-error {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     flex-direction: column;
+    margin: 20px;
     img {
         width: 400px;
     }
+}
+
+.no-data-error {
+    width: 300px;
 }
