@@ -4,5 +4,30 @@
   border-radius: 20px;
   margin-left: 40px;
   width: 100%;
+
+  .right-side{
+
+    padding: 30px;
+    .tooth-btn {
+      border-radius: 10px;
+      
+      .container {
+        display: flex;
+        padding: 20px;
+
+        p {
+          margin-left: 20px;
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        img {
+          width: 40px;
+        }
+      }
+    }
+  }
   
+
+    
 }

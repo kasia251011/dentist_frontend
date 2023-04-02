@@ -5,6 +5,7 @@ interface Patient {
   surname: string;
   pesel: string;
   dateOfBirth: Date;
+  email: string;
   phoneNumber: string;
 }
 

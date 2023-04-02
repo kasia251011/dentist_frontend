@@ -1,6 +1,8 @@
+@import '../../../../styles/constants';
+
 .patient-details {
   width: 250px;
-  background-color: #D4F3F7;
+  background-color: $primary10;
   padding: 40px;
   border-radius: 20px;
   display: flex;
@@ -10,7 +12,8 @@
 
   .label {
     width: 100%;
-    color: #08272B;
+    font-size: 14px;
+    color: $primary2;
     font-weight: 600;
     margin-top: 10px;
   }
@@ -20,10 +23,5 @@
     color: #187581;
     padding: 5px 15px;
     border-radius: 20px;
-  }
-
-  .text:hover {
-    background-color: #EEFAFC;
-    cursor: pointer;
   }
 }

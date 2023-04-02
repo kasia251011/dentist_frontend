@@ -1,0 +1,12 @@
+export const primary1 = '#051b1e';
+export const primary2 = '#0d434a';
+export const primary3 = '#156a75';
+export const primary4 = '#1c91a0';
+export const primary5 = '#24b9cc';
+export const primary6 = '#43cddf';
+export const primary7 = '#6fd9e7';
+export const primary8 = '#9be4ee';
+export const primary9 = '#c6f0f5';
+export const primary10 = '#d4f4f7';
+export const primary11 = '#e9fafb';
+export const primary12 = '#f6fdfd';
