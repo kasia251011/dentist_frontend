@@ -1,32 +1,36 @@
 @import '../../../styles/constants';
 
 .add-patient {
-    width: 250px;
-    margin-left: 40px;
-    background-color: $primary10;
-    padding: 40px;
-    border-radius: 20px;
+  width: 250px;
+  margin-left: 40px;
+  background-color: $primary10;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    
+    height: 100%;
 
-    .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        height: 100%;
+    .label {
+      width: 100%;
+      font-size: 14px;
+      color: $primary2;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 5px;
 
-        .label {
-            width: 100%;
-            font-size: 14px;
-            color: $primary2;
-            font-weight: 600;
-            margin-top: 10px;
-            margin-bottom: 5px;
-
-          }
     }
+  }
 
     
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
 }

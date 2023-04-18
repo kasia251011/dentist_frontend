@@ -13,20 +13,18 @@ import { useGetPatientsQuery } from '../../../feature/services/patientApi';
 import SERVER_ERROR_IMG from '../../../assets/500 Internal Server Error.svg';
 import NO_DATA_IMG from '../../../assets/No data-pana.svg';
 import './style.scss';
-import { useAppDispatch, useAppSelector } from '../../../feature/hooks';
-import { setPatientId } from '../../../feature/currentSession/currentSessionSlice';
 import PatientRow from './patientRow';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 const PatientsList = () => {
   const { data: patients, isError, isSuccess } = useGetPatientsQuery();
-  const patientId = useAppSelector((state) => state.currentSession.patieintId);
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (isSuccess && patients.length > 0 && patientId == null) {
-      if (patients[0].id) {
-        dispatch(setPatientId(patients[0].id));
+    if (isSuccess && patients.length > 0) {
+      if (patients[0]._id) {
+        navigate(patients[0]._id);
       }
     }
   }, [patients]);

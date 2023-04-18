@@ -2,17 +2,13 @@ import { Box, IconButton, Typography } from '@mui/material';
 import PatientsList from './patientsList';
 import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
 import './style.scss';
-import AddPatientCard from './addPatientCard';
-import PatientCard from './patientCard';
-import { useAppSelector, useAppDispatch } from '../../feature/hooks';
-import { setPatientId } from '../../feature/currentSession/currentSessionSlice';
+import { Outlet, useNavigate } from 'react-router';
 
 const PatientsPage = () => {
-  const patientId = useAppSelector((state) => state.currentSession.patieintId);
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const displayAddPatient = () => {
-    dispatch(setPatientId(null));
+    navigate(`add`);
   };
 
   return (
@@ -26,7 +22,7 @@ const PatientsPage = () => {
         </Box>
         <PatientsList />
       </Box>
-      {patientId === null ? <AddPatientCard /> : <PatientCard />}
+      <Outlet />
     </Box>
   );
 };

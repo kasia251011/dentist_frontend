@@ -1,5 +1,5 @@
 interface Patient {
-  id: number;
+  _id: string;
   avatar?: string;
   name: string;
   surname: string;

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type Id = number | null;
+type Id = string | null;
 
 interface CurrentSessionState {
   patieintId: Id;
@@ -12,7 +12,7 @@ const currentSessionSlice = createSlice({
   name: 'currentPatinet',
   initialState,
   reducers: {
-    setPatientId(state, action: PayloadAction<number | null>) {
+    setPatientId(state, action: PayloadAction<Id>) {
       state.patieintId = action.payload;
     }
   }

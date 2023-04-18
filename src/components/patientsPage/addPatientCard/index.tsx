@@ -8,17 +8,19 @@ import Patient from '../../../feature/services/types/Patient';
 import { primary5, primary11 } from '../../../theme/constants';
 import { useAppDispatch } from '../../../feature/hooks';
 import { setPatientId } from '../../../feature/currentSession/currentSessionSlice';
+import { useNavigate } from 'react-router-dom';
 
 const AddPatientCard = () => {
   const dispatch = useAppDispatch();
   const [addPatient] = useAddPatientMutation();
   const { register, handleSubmit } = useForm<Patient>();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Patient> = (patient) => {
     addPatient(patient)
       .unwrap()
       .then((newPatient) => {
-        dispatch(setPatientId(newPatient.id));
+        dispatch(setPatientId(newPatient._id));
       });
   };
   return (
@@ -41,7 +43,14 @@ const AddPatientCard = () => {
           <Typography className="label">Phone number</Typography>
           <InputBase {...register('phoneNumber', { required: true })} />
         </Box>
-        <Button type="submit">ADD PATIENT</Button>
+        <Box className="buttons">
+          <Button type="submit" variant="contained" size="small">
+            ADD PATIENT
+          </Button>
+          <Button onClick={() => navigate(-1)} size="small">
+            CANEL
+          </Button>
+        </Box>
       </form>
     </Box>
   );
