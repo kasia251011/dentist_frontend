@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { primary2, primary3, primary5 } from './constants';
+import { primary4, primary3, primary5 } from './constants';
 
 const theme = createTheme({
   typography: {
@@ -22,7 +22,7 @@ const theme = createTheme({
     primary: {
       light: '#D4F3F7',
       main: primary5,
-      dark: primary2,
+      dark: primary4,
       contrastText: '#fff'
     }
   },

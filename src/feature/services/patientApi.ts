@@ -10,7 +10,7 @@ export const patientApi = createApi({
       query: () => 'patients',
       providesTags: ['Patients']
     }),
-    getPatientById: builder.query<Patient, number>({
+    getPatientById: builder.query<Patient, string>({
       query: (id) => `patients/${id}`
     }),
     addPatient: builder.mutation<Patient, Patient>({
@@ -20,8 +20,21 @@ export const patientApi = createApi({
         body: patient
       }),
       invalidatesTags: ['Patients']
+    }),
+    deletePatienttById: builder.mutation<Patient, string>({
+      query: (id) => ({
+        url: `patients/${id}`,
+        method: 'DELETE'
+      }),
+      invalidatesTags: ['Patients']
     })
   })
 });
 
-export const { useGetPatientsQuery, useGetPatientByIdQuery, useAddPatientMutation } = patientApi;
+export const {
+  useGetPatientsQuery,
+  useGetPatientByIdQuery,
+  useAddPatientMutation,
+  useDeletePatienttByIdMutation,
+  useLazyGetPatientsQuery
+} = patientApi;
