@@ -1,0 +1,29 @@
+.add-appointment-dialog {
+
+  .row {
+    display: flex;
+
+    .cell {
+      width: 200px;
+      margin: 5px;
+
+      .label {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .procedure-card {
+    margin-top: 10px;
+
+    h3 {
+      font-size: 0.8rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
+  }
+
+}

@@ -5,13 +5,17 @@ import { store } from '../feature/store';
 import router from '../router/router';
 import { ThemeProvider } from '@mui/material';
 import theme from '../theme/theme';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const App = () => {
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <RouterProvider router={router} />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <RouterProvider router={router} />
+          </LocalizationProvider>
         </Provider>
       </ThemeProvider>
     </React.StrictMode>

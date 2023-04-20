@@ -1,0 +1,41 @@
+.appointment-card {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  padding: 20px;
+
+  .time {
+    font-size: 24px;
+    font-weight: 500;
+    width: 100px;
+  }
+
+  .procedure {
+    width: 200px;
+    font-size: 0.9rem;
+  }
+
+  .duration {
+    width: 150px;
+    font-size: 0.9rem;
+  }
+
+  .price {
+    width: 70px;
+    font-size: 0.9rem;
+  }
+
+  .patient {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+}

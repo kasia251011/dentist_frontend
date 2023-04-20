@@ -1,0 +1,36 @@
+.home-page {
+  .doctor-name {
+    color: #156a75;
+    font-weight: 600;
+  }
+
+  
+
+  .container {
+    display: flex;
+
+    
+    
+    .appointment-list {
+      width: 800px;
+
+      .summary {
+        background-color: #e9fafb;
+        height: 100px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .calendar {
+    margin: 0 auto;
+    height: min-content;
+  }
+}
