@@ -1,4 +1,9 @@
 .home-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  
   .doctor-name {
     color: #156a75;
     font-weight: 600;
@@ -8,11 +13,15 @@
 
   .container {
     display: flex;
-
+    flex: 1;
+    box-sizing: border-box;
     
     
-    .appointment-list {
-      width: 800px;
+    .left-container {
+      display: flex;
+      flex-direction: column;
+      min-width: 500px;
+      width: 860px;
 
       .summary {
         background-color: #e9fafb;
@@ -25,6 +34,16 @@
         display: flex;
         justify-content: space-between;
         margin: 10px 0;
+      }
+
+      .appointments-list {
+        height: calc(100% - 300px); //FIX
+        padding: 3px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
     }
   }

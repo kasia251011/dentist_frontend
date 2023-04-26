@@ -18,15 +18,17 @@ const Home = () => {
         Good morning, <span className="doctor-name">Dr Freeman</span>
       </Typography>
       <Box className="container">
-        <Box className="appointment-list">
+        <Box className="left-container">
           <Box className="summary"></Box>
           <Box className="header">
             <Typography variant="h2">Appointments</Typography>
             <AddAppointmentButton />
           </Box>
-          {appointments?.map((appointment, index) => (
-            <AppointmentCard key={index} {...appointment} />
-          ))}
+          <Box className="appointments-list">
+            {appointments?.map((appointment, index) => (
+              <AppointmentCard key={index} {...appointment} />
+            ))}
+          </Box>
         </Box>
         <Card className="calendar">
           <DateCalendar

@@ -30,7 +30,7 @@ const AppointmentCard = ({ _id, time, procedureId, patientId }: Appointment) => 
       </Avatar>
       <Typography className="patient field">{`${patient?.name} ${patient?.surname}`}</Typography>
       {deleteBtnVisible && (
-        <IconButton size="small" onClick={() => deleteAppointment(_id)}>
+        <IconButton className="delete-btn" size="small" onClick={() => deleteAppointment(_id)}>
           <DeleteIcon />
         </IconButton>
       )}

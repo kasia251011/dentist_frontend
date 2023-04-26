@@ -13,3 +13,9 @@
 .no-data-error {
     width: 300px;
 }
+
+.patients-list  div{
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
