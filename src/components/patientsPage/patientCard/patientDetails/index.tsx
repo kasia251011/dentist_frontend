@@ -11,7 +11,9 @@ const getDate = (date: Date | undefined) => {
 const PatientDetails = ({ patient }: { patient: Patient | undefined }) => {
   return (
     <Box className="patient-details">
-      <Avatar sx={{ width: 90, height: 90, marginBottom: '10px', backgroundColor: primary11 }}>
+      <Avatar
+        src={patient?.avatar}
+        sx={{ width: 90, height: 90, marginBottom: '10px', backgroundColor: primary11 }}>
         <Person2RoundedIcon fontSize="large" htmlColor={primary5} />
       </Avatar>
       <Typography className="label">Name</Typography>

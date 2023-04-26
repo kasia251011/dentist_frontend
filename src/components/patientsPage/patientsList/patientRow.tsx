@@ -5,12 +5,14 @@ import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
 import { getAge } from '../../../utilities';
 import { useNavigate } from 'react-router';
 
-const PatientRow = ({ _id, name, surname, phoneNumber, dateOfBirth }: Patient) => {
+const PatientRow = ({ _id, name, surname, phoneNumber, dateOfBirth, avatar }: Patient) => {
   const navigate = useNavigate();
   return (
     <TableRow hover onClick={() => navigate(`${_id}`)}>
       <TableCell sx={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar sx={{ width: 30, height: 30, marginRight: '10px', backgroundColor: primary11 }}>
+        <Avatar
+          src={avatar}
+          sx={{ width: 30, height: 30, marginRight: '10px', backgroundColor: primary11 }}>
           <Person2RoundedIcon htmlColor={primary5} />
         </Avatar>
         {name + ' ' + surname}

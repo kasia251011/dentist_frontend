@@ -20,7 +20,9 @@ const PatientsPage = () => {
             <PersonAddRoundedIcon />
           </IconButton>
         </Box>
-        <PatientsList />
+        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+          <PatientsList />
+        </Box>
       </Box>
       <Outlet />
     </Box>
