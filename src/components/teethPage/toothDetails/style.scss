@@ -1,0 +1,22 @@
+.tooth-details {
+
+  .state {
+    width: min-content;
+    padding: 2px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+
+  .healthy {
+    background-color: #b9eff2a6;
+    color: #436A70;
+  }
+
+  .no-data {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}

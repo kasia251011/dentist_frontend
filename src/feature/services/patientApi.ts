@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Patient from './types/Patient';
+import Patient, { Tooth } from './types/Patient';
 
 export const patientApi = createApi({
   reducerPath: 'patientApi',
@@ -13,6 +13,9 @@ export const patientApi = createApi({
     getPatientById: builder.query<Patient, string>({
       query: (id) => `patients/${id}`
     }),
+    getPatientTeeth: builder.query<Tooth[], string>({
+      query: (id) => `patients/${id}/teeth`
+    }),
     addPatient: builder.mutation<Patient, Patient>({
       query: (patient) => ({
         url: '/patients',
@@ -21,7 +24,7 @@ export const patientApi = createApi({
       }),
       invalidatesTags: ['Patients']
     }),
-    deletePatienttById: builder.mutation<Patient, string>({
+    deletePatientById: builder.mutation<Patient, string>({
       query: (id) => ({
         url: `patients/${id}`,
         method: 'DELETE'
@@ -35,6 +38,7 @@ export const {
   useGetPatientsQuery,
   useGetPatientByIdQuery,
   useAddPatientMutation,
-  useDeletePatienttByIdMutation,
-  useLazyGetPatientsQuery
+  useDeletePatientByIdMutation,
+  useLazyGetPatientsQuery,
+  useGetPatientTeethQuery
 } = patientApi;

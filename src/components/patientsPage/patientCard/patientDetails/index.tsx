@@ -3,10 +3,7 @@ import Patient from '../../../../feature/services/types/Patient';
 import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
 import './style.scss';
 import { primary5, primary11 } from '../../../../theme/constants';
-
-const getDate = (date: Date | undefined) => {
-  return date ? new Date(date).toLocaleString() : '';
-};
+import { getDate } from '../../../../utilities';
 
 const PatientDetails = ({ patient }: { patient: Patient | undefined }) => {
   return (

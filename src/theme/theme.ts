@@ -43,7 +43,6 @@ const theme = createTheme({
     h3: {
       fontSize: '1.1rem',
       fontWeight: 600,
-      marginBottom: '15px',
       color: '#08272B'
     },
     error: {
