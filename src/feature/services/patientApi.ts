@@ -1,10 +1,22 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Patient, { Tooth } from './types/Patient';
+import Patient, { Diagnosis, Tooth } from './types/Patient';
+
+export interface AddToothDiagnosisByPatientIdByToothNoI {
+  id: string;
+  toothNo: number;
+  diagnosis: Diagnosis;
+}
+
+export interface GetPatientToothDiagnosisI {
+  id: string;
+  toothNo: number;
+  index: number;
+}
 
 export const patientApi = createApi({
   reducerPath: 'patientApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080/' }),
-  tagTypes: ['Patients'],
+  tagTypes: ['Patients', 'Teeth'],
   endpoints: (builder) => ({
     getPatients: builder.query<Patient[], void>({
       query: () => 'patients',
@@ -14,7 +26,11 @@ export const patientApi = createApi({
       query: (id) => `patients/${id}`
     }),
     getPatientTeeth: builder.query<Tooth[], string>({
-      query: (id) => `patients/${id}/teeth`
+      query: (id) => `patients/${id}/teeth`,
+      providesTags: ['Teeth']
+    }),
+    getPatientToothDiagnosis: builder.query<Diagnosis, GetPatientToothDiagnosisI>({
+      query: ({ id, toothNo, index }) => `patients/${id}/teeth/${toothNo}/${index}`
     }),
     addPatient: builder.mutation<Patient, Patient>({
       query: (patient) => ({
@@ -30,6 +46,17 @@ export const patientApi = createApi({
         method: 'DELETE'
       }),
       invalidatesTags: ['Patients']
+    }),
+    addToothDiagnosisByPatientIdByToothNo: builder.mutation<
+      Patient,
+      AddToothDiagnosisByPatientIdByToothNoI
+    >({
+      query: ({ id, toothNo, diagnosis }) => ({
+        url: `/patients/${id}/teeth/${toothNo}`,
+        method: 'PATCH',
+        body: diagnosis
+      }),
+      invalidatesTags: ['Teeth']
     })
   })
 });
@@ -40,5 +67,7 @@ export const {
   useAddPatientMutation,
   useDeletePatientByIdMutation,
   useLazyGetPatientsQuery,
-  useGetPatientTeethQuery
+  useGetPatientTeethQuery,
+  useAddToothDiagnosisByPatientIdByToothNoMutation,
+  useGetPatientToothDiagnosisQuery
 } = patientApi;

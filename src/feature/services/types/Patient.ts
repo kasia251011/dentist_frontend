@@ -18,7 +18,7 @@ export interface Tooth {
 
 export interface Diagnosis {
   date: Date;
-  img?: string;
+  src?: string;
   description: string;
 }
 

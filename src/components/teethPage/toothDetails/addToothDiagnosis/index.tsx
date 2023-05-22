@@ -6,9 +6,16 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { Diagnosis } from '../../../../feature/services/types/Patient';
 import InputDesc from './inputs/InputDesc';
 import './style.scss';
+import {
+  AddToothDiagnosisByPatientIdByToothNoI,
+  useAddToothDiagnosisByPatientIdByToothNoMutation
+} from '../../../../feature/services/patientApi';
+import { useParams } from 'react-router-dom';
 
 const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
   const methods = useForm<Diagnosis>();
+  const { id: patientId } = useParams<string>();
+  const [addDiagnosis] = useAddToothDiagnosisByPatientIdByToothNoMutation();
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -16,7 +23,14 @@ const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
   };
 
   const onSubmit: SubmitHandler<Diagnosis> = (diagnosis) => {
+    const patchParams: AddToothDiagnosisByPatientIdByToothNoI = {
+      id: patientId ?? '1',
+      toothNo: toothNo,
+      diagnosis: diagnosis
+    };
+
     console.log(diagnosis);
+    addDiagnosis(patchParams);
     handleClose();
   };
   const handleClose = () => {

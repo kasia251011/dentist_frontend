@@ -10,13 +10,17 @@ import AddToothDiagnosis from './addToothDiagnosis';
 const ToothDetails = () => {
   const { id: patientId, toothNo } = useParams<string>();
   const { data: teeth } = useGetPatientTeethQuery(patientId ?? '');
-  const tooth = useMemo(() => teeth?.find((t) => t.no === parseInt(toothNo ?? '1')), [toothNo]);
+  const tooth = useMemo(
+    () => teeth?.find((t) => t.no === parseInt(toothNo ?? '1')),
+    [toothNo, teeth]
+  );
 
   console.log(tooth);
 
   return (
     <Box className="tooth-details">
       <Box className="header">
+        <Typography fontSize={'0.8rem'}>Actual state: </Typography>
         <Typography className={`${tooth?.state.toLowerCase()} state`}>
           {tooth?.state.toLowerCase()}
         </Typography>
@@ -29,10 +33,10 @@ const ToothDetails = () => {
             <AddToothDiagnosis toothNo={tooth?.no} />
           </Box>
         ) : (
-          <>
+          <Box display={'flex'}>
             <Outlet />
             <ToothDiagnoses diagnoses={tooth?.diagnoses ?? []} />
-          </>
+          </Box>
         )}
       </Box>
     </Box>

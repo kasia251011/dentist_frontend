@@ -10,5 +10,5 @@ export const getAge = (dateOfBirth: Date) => {
 };
 
 export const getDate = (date: Date | undefined) => {
-  return date ? new Date(date).toLocaleString() : '';
+  return date?.toLocaleString() ? new Date(date).toLocaleDateString() : '';
 };

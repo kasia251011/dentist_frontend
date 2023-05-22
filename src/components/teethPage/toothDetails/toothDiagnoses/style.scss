@@ -1,12 +1,20 @@
 .tooth-diagnoses-container {
   display: flex;
-  flex-direction: row;
-  width: 600px;
+  flex-direction: column;
+  width: 700px;
 
   .header {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+  }
+
+  .diagnoses {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    overflow-x: scroll;
   }
 }

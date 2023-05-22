@@ -4,6 +4,7 @@ import { DateCalendar } from '@mui/x-date-pickers';
 import { useGetAppointmentsByDateQuery } from '../../feature/services/appointmentApi';
 import AppointmentCard from './AppointmentCard';
 import AddAppointmentButton from './AddAppointmentButton';
+import NO_APPOINTMENT_IMG from '../../assets/Calendar.svg';
 import './styles.scss';
 import dayjs, { Dayjs } from 'dayjs';
 import { SetStateAction, useState } from 'react';
@@ -24,11 +25,18 @@ const Home = () => {
             <Typography variant="h2">Appointments</Typography>
             <AddAppointmentButton />
           </Box>
-          <Box className="appointments-list">
-            {appointments?.map((appointment, index) => (
-              <AppointmentCard key={index} {...appointment} />
-            ))}
-          </Box>
+          {appointments?.length === 0 ? (
+            <Box display="flex" alignItems="center" flexDirection="column">
+              <img src={NO_APPOINTMENT_IMG} width="300px" />
+              <Typography>There is no appointment scheduled. Add One!</Typography>
+            </Box>
+          ) : (
+            <Box className="appointments-list">
+              {appointments?.map((appointment, index) => (
+                <AppointmentCard key={index} {...appointment} />
+              ))}
+            </Box>
+          )}
         </Box>
         <Card className="calendar">
           <DateCalendar

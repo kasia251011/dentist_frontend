@@ -2,13 +2,20 @@ import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/m
 import TOOTH_IMG_EXAMPLE from '../../../../assets/tooth-photo-example.jpg';
 import { Diagnosis } from '../../../../feature/services/types/Patient';
 import { getDate } from '../../../../utilities';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const DiagnosesCard = (diagnosis: Diagnosis) => {
+const DiagnosesCard = ({ diagnosis, index }: { diagnosis: Diagnosis; index: number }) => {
+  const navigate = useNavigate();
+  const { index: diagnosisIndex } = useParams<string>();
+
   return (
-    <Card sx={{ maxWidth: 60 }}>
-      <CardActionArea>
-        <CardMedia component="img" height="40" image={TOOTH_IMG_EXAMPLE} />
-        <CardContent>
+    <Card sx={{ minWidth: '150px' }}>
+      <CardActionArea onClick={() => navigate(`${index}`)}>
+        <CardMedia component="img" height="120" image={TOOTH_IMG_EXAMPLE} />
+        <CardContent
+          className={`${
+            parseInt(diagnosisIndex ?? '0') === index ? 'diagnosisCard--selected' : ''
+          }`}>
           <Typography variant="body2" color="text.secondary">
             {getDate(diagnosis.date)}
           </Typography>
