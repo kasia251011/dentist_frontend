@@ -1,3 +1,11 @@
-.last-apointments {
-  // padding: 40px;
+.last-appointments {
+  .card {
+    margin-top: 10px;
+    height: 400px;
+    overflow-y: auto;
+
+    .appointment-summary {
+      padding: 18.6px;
+    }
+  }
 }

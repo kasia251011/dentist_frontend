@@ -39,11 +39,7 @@
       .appointments-list {
         height: 350px; //FIX
         padding: 3px;
-        overflow-y: scroll;
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
+        overflow-y: auto;
       }
     }
   }

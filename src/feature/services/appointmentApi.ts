@@ -10,6 +10,9 @@ export const appointmentApi = createApi({
       query: (date) => `appointments?date=${date}`,
       providesTags: ['Appointments']
     }),
+    getAppointmentsByPatient: builder.query<Appointment[], string>({
+      query: (patientId) => `appointments?patientId=${patientId}`
+    }),
     getAppointmentsById: builder.query<Appointment, string>({
       query: (id) => `appointments/${id}`
     }),
@@ -35,5 +38,6 @@ export const {
   useGetAppointmentsByDateQuery,
   useGetAppointmentsByIdQuery,
   useAddAppointmentMutation,
-  useDeleteAppointmenttByIdMutation
+  useDeleteAppointmenttByIdMutation,
+  useGetAppointmentsByPatientQuery
 } = appointmentApi;
