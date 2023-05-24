@@ -14,6 +14,7 @@ const InputDesc = () => {
         multiline
         sx={{ display: 'flex' }}
         {...register('description')}
+        defaultValue={''}
       />
     </Box>
   );

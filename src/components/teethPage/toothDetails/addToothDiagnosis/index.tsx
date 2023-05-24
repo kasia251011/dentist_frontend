@@ -14,7 +14,11 @@ import { useParams } from 'react-router-dom';
 import { uploadFile } from './uploadFile';
 
 const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
-  const methods = useForm<Diagnosis>();
+  const methods = useForm<Diagnosis>({
+    defaultValues: {
+      description: ''
+    }
+  });
   const { id: patientId } = useParams<string>();
   const [addDiagnosis] = useAddToothDiagnosisByPatientIdByToothNoMutation();
   const [open, setOpen] = useState(false);
@@ -30,8 +34,6 @@ const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
       diagnosis: diagnosis
     };
 
-    console.log(diagnosis.files);
-
     if (diagnosis.files && diagnosis.files.length > 0) {
       uploadFile(diagnosis.files?.[0]).then((res: any) => {
         patchParams.diagnosis.src = res.url;
@@ -45,6 +47,7 @@ const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
     }
   };
   const handleClose = () => {
+    methods.reset();
     setOpen(false);
   };
 
