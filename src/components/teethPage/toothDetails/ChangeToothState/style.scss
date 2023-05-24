@@ -1,0 +1,23 @@
+.change-tooth-state-dialog {
+
+  .state  {
+    width: 100%;
+    padding: 8px 0px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 6px;
+    text-align: center;
+
+    &--selected {
+      border: 3px solid #6875B4;
+      box-sizing: border-box;
+    }
+  }
+
+  
+
+  .state:hover {
+    cursor: pointer;
+  }
+  
+}

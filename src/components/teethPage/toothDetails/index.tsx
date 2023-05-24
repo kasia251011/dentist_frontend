@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { useGetPatientTeethQuery } from '../../../feature/services/patientApi';
 import NO_DATA from '../../../assets/No data-pana.svg';
 import AddToothDiagnosis from './addToothDiagnosis';
+import ChangeToothState from './ChangeToothState';
 
 const ToothDetails = () => {
   const { id: patientId, toothNo } = useParams<string>();
@@ -15,15 +16,11 @@ const ToothDetails = () => {
     [toothNo, teeth]
   );
 
-  console.log(tooth);
-
   return (
     <Box className="tooth-details">
       <Box className="header">
         <Typography fontSize={'0.8rem'}>Actual state: </Typography>
-        <Typography className={`${tooth?.state.toLowerCase()} state`}>
-          {tooth?.state.toLowerCase()}
-        </Typography>
+        <ChangeToothState no={tooth?.no ?? 1} state={tooth?.state ?? 'HEALTHY'} diagnoses={[]} />
       </Box>
       <Box className="container">
         {tooth?.diagnoses.length === 0 ? (

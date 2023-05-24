@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import ToothState from './toothState';
 import { Box } from '@mui/material';
 import './style.scss';
 import { useGetPatientTeethQuery } from '../../../feature/services/patientApi';
 import { useEffect } from 'react';
+import ToothIcon from './toothState';
 
 const PatientTeeth = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const PatientTeeth = () => {
   return (
     <Box className="patient-teeth">
       {teeth?.map((tooth) => (
-        <ToothState key={tooth.no} {...tooth} />
+        <ToothIcon key={tooth.no} {...tooth} />
       ))}
     </Box>
   );

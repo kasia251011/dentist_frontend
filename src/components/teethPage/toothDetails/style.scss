@@ -13,11 +13,12 @@
       font-weight: 500;
       border-radius: 6px;
     }
-  
-    .healthy {
-      background-color: #b9eff2a6;
-      color: #436A70;
+
+    .state:hover {
+      cursor: pointer;
     }
+  
+
   }
 
   .no-data {

@@ -1,10 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Patient, { Diagnosis, Tooth } from './types/Patient';
+import Patient, { Diagnosis, Tooth, ToothState } from './types/Patient';
 
 export interface AddToothDiagnosisByPatientIdByToothNoI {
   id: string;
   toothNo: number;
   diagnosis: Diagnosis;
+}
+
+export interface UpdateToothByPatientIdByToothNoI {
+  id: string;
+  toothNo: number;
+  state: ToothState;
 }
 
 export interface GetPatientToothDiagnosisI {
@@ -57,6 +63,16 @@ export const patientApi = createApi({
         body: diagnosis
       }),
       invalidatesTags: ['Teeth']
+    }),
+    updateToothByPatientIdByToothNo: builder.mutation<Patient, UpdateToothByPatientIdByToothNoI>({
+      query: ({ id, toothNo, state }) => ({
+        url: `/patients/${id}/teeth/${toothNo}`,
+        method: 'PUT',
+        body: {
+          state
+        }
+      }),
+      invalidatesTags: ['Teeth']
     })
   })
 });
@@ -69,5 +85,6 @@ export const {
   useLazyGetPatientsQuery,
   useGetPatientTeethQuery,
   useAddToothDiagnosisByPatientIdByToothNoMutation,
-  useGetPatientToothDiagnosisQuery
+  useGetPatientToothDiagnosisQuery,
+  useUpdateToothByPatientIdByToothNoMutation
 } = patientApi;

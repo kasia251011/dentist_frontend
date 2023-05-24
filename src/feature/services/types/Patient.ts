@@ -12,7 +12,7 @@ interface Patient {
 
 export interface Tooth {
   no: number;
-  state: 'HEALTHY' | 'ILL';
+  state: ToothState;
   diagnoses: Diagnosis[];
 }
 
@@ -20,6 +20,17 @@ export interface Diagnosis {
   date: Date;
   src?: string;
   description: string;
+  files?: File[];
 }
+
+export type ToothState =
+  | 'HEALTHY'
+  | 'CARIES'
+  | 'ARTIFICIAL'
+  | 'SEAL'
+  | 'CAVITY'
+  | 'MILK'
+  | 'EXTRACTED'
+  | 'TREATED';
 
 export default Patient;

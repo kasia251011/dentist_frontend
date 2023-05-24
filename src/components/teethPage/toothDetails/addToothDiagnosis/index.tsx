@@ -11,6 +11,7 @@ import {
   useAddToothDiagnosisByPatientIdByToothNoMutation
 } from '../../../../feature/services/patientApi';
 import { useParams } from 'react-router-dom';
+import { uploadFile } from './uploadFile';
 
 const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
   const methods = useForm<Diagnosis>();
@@ -29,9 +30,19 @@ const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
       diagnosis: diagnosis
     };
 
-    console.log(diagnosis);
-    addDiagnosis(patchParams);
-    handleClose();
+    console.log(diagnosis.files);
+
+    if (diagnosis.files && diagnosis.files.length > 0) {
+      uploadFile(diagnosis.files?.[0]).then((res: any) => {
+        patchParams.diagnosis.src = res.url;
+        console.log(patchParams.diagnosis.src, res.url);
+        addDiagnosis(patchParams);
+        handleClose();
+      });
+    } else {
+      addDiagnosis(patchParams);
+      handleClose();
+    }
   };
   const handleClose = () => {
     setOpen(false);
@@ -57,7 +68,7 @@ const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
               <InputDesc />
               <Button variant="outlined" sx={{ width: '150px' }} component="label">
                 Upload image
-                <input hidden accept="image/*" multiple type="file" />
+                <input {...methods.register('files')} hidden accept="image/*" type="file" />
               </Button>
             </DialogContent>
             <DialogActions>
