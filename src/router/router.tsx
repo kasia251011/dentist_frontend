@@ -5,6 +5,9 @@ import SideNavBar from '../components/sideNavBar';
 import PATH from './paths';
 import PatientCard from '../components/patientsPage/patientCard';
 import AddPatientCard from '../components/patientsPage/addPatientCard';
+import TeethPage from '../components/teethPage';
+import ToothDetails from '../components/teethPage/toothDetails';
+import ToothDiagnosis from '../components/teethPage/toothDetails/toothDiagnosis';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,22 @@ const router = createBrowserRouter([
           {
             path: '/patients/add',
             element: <AddPatientCard />
+          }
+        ]
+      },
+      {
+        path: '/patients/:id/teeth',
+        element: <TeethPage />,
+        children: [
+          {
+            path: '/patients/:id/teeth/:toothNo',
+            element: <ToothDetails />,
+            children: [
+              {
+                path: '/patients/:id/teeth/:toothNo/:index',
+                element: <ToothDiagnosis />
+              }
+            ]
           }
         ]
       }

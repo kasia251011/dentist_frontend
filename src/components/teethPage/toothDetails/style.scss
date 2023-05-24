@@ -1,0 +1,39 @@
+.tooth-details {
+
+  .header {
+    display: flex;
+    align-items: center;
+
+
+    .state {
+      margin-left: 5px;
+      width: min-content;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 6px;
+    }
+
+    .state:hover {
+      cursor: pointer;
+    }
+  
+
+  }
+
+  .no-data {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.diagnosisCard--selected{
+  background-color: #d4f4f7;
+
+  p {
+    color: #436A70;
+    font-weight: 600;
+  }
+}

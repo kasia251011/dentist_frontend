@@ -1,0 +1,16 @@
+.tooth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+  }
+
+  &--selected {
+    background-color: rgb(233, 233, 233);
+  }
+}

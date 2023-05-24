@@ -1,10 +1,28 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Patient from './types/Patient';
+import Patient, { Diagnosis, Tooth, ToothState } from './types/Patient';
+
+export interface AddToothDiagnosisByPatientIdByToothNoI {
+  id: string;
+  toothNo: number;
+  diagnosis: Diagnosis;
+}
+
+export interface UpdateToothByPatientIdByToothNoI {
+  id: string;
+  toothNo: number;
+  state: ToothState;
+}
+
+export interface GetPatientToothDiagnosisI {
+  id: string;
+  toothNo: number;
+  index: number;
+}
 
 export const patientApi = createApi({
   reducerPath: 'patientApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8080/' }),
-  tagTypes: ['Patients'],
+  tagTypes: ['Patients', 'Teeth'],
   endpoints: (builder) => ({
     getPatients: builder.query<Patient[], void>({
       query: () => 'patients',
@@ -12,6 +30,13 @@ export const patientApi = createApi({
     }),
     getPatientById: builder.query<Patient, string>({
       query: (id) => `patients/${id}`
+    }),
+    getPatientTeeth: builder.query<Tooth[], string>({
+      query: (id) => `patients/${id}/teeth`,
+      providesTags: ['Teeth']
+    }),
+    getPatientToothDiagnosis: builder.query<Diagnosis, GetPatientToothDiagnosisI>({
+      query: ({ id, toothNo, index }) => `patients/${id}/teeth/${toothNo}/${index}`
     }),
     addPatient: builder.mutation<Patient, Patient>({
       query: (patient) => ({
@@ -21,12 +46,33 @@ export const patientApi = createApi({
       }),
       invalidatesTags: ['Patients']
     }),
-    deletePatienttById: builder.mutation<Patient, string>({
+    deletePatientById: builder.mutation<Patient, string>({
       query: (id) => ({
         url: `patients/${id}`,
         method: 'DELETE'
       }),
       invalidatesTags: ['Patients']
+    }),
+    addToothDiagnosisByPatientIdByToothNo: builder.mutation<
+      Patient,
+      AddToothDiagnosisByPatientIdByToothNoI
+    >({
+      query: ({ id, toothNo, diagnosis }) => ({
+        url: `/patients/${id}/teeth/${toothNo}`,
+        method: 'PATCH',
+        body: diagnosis
+      }),
+      invalidatesTags: ['Teeth']
+    }),
+    updateToothByPatientIdByToothNo: builder.mutation<Patient, UpdateToothByPatientIdByToothNoI>({
+      query: ({ id, toothNo, state }) => ({
+        url: `/patients/${id}/teeth/${toothNo}`,
+        method: 'PUT',
+        body: {
+          state
+        }
+      }),
+      invalidatesTags: ['Teeth']
     })
   })
 });
@@ -35,6 +81,10 @@ export const {
   useGetPatientsQuery,
   useGetPatientByIdQuery,
   useAddPatientMutation,
-  useDeletePatienttByIdMutation,
-  useLazyGetPatientsQuery
+  useDeletePatientByIdMutation,
+  useLazyGetPatientsQuery,
+  useGetPatientTeethQuery,
+  useAddToothDiagnosisByPatientIdByToothNoMutation,
+  useGetPatientToothDiagnosisQuery,
+  useUpdateToothByPatientIdByToothNoMutation
 } = patientApi;

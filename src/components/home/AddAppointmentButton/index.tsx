@@ -24,7 +24,6 @@ import InputTime from './Inputs/InputTime';
 import { useGetPatientsQuery } from '../../../feature/services/patientApi';
 import { useGetProceduresQuery } from '../../../feature/services/procedureApi';
 import { Procedure } from '../../../feature/services/types/Procedure';
-// import { Procedure } from '../../../feature/services/types/Procedure';
 
 const AddAppointmentButton = () => {
   const [addAppointment] = useAddAppointmentMutation();
@@ -41,7 +40,6 @@ const AddAppointmentButton = () => {
   };
 
   const onSubmit: SubmitHandler<Appointment> = (appointment) => {
-    console.log(appointment);
     addAppointment(appointment);
     handleClose();
   };
