@@ -1,19 +1,15 @@
 import {
   Box,
   Button,
-  Card,
-  CardContent,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
   InputLabel,
   MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography
+  Select
 } from '@mui/material';
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import './styles.scss';
 import { useAddAppointmentMutation } from '../../../feature/services/appointmentApi';
@@ -23,7 +19,6 @@ import InputDate from './Inputs/InputDate';
 import InputTime from './Inputs/InputTime';
 import { useGetPatientsQuery } from '../../../feature/services/patientApi';
 import { useGetProceduresQuery } from '../../../feature/services/procedureApi';
-import { Procedure } from '../../../feature/services/types/Procedure';
 
 const AddAppointmentButton = () => {
   const [addAppointment] = useAddAppointmentMutation();
@@ -31,9 +26,6 @@ const AddAppointmentButton = () => {
   const { data: procedures } = useGetProceduresQuery();
   const methods = useForm<Appointment>();
   const [open, setOpen] = useState(false);
-  const [selectedProcedure, setSelectedProcedure] = useState<Procedure | undefined>(
-    procedures?.[0]
-  );
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,18 +38,6 @@ const AddAppointmentButton = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  //TODO: Assign on change!
-  // eslint-disable-next-line no-unused-vars
-  const handleChangeProcedure = (event: SelectChangeEvent<string>, child: ReactNode) => {
-    const id = event.target.value;
-    const procedure = procedures?.find((procedure) => procedure._id === id);
-    setSelectedProcedure(procedure);
-  };
-
-  // useEffect(() => {
-  //   setSelectedProcedure(procedures?.[0]);
-  // }, [procedures]);
 
   return (
     <>
@@ -101,13 +81,6 @@ const AddAppointmentButton = () => {
                   </Select>
                 </Box>
               </Box>
-              <Card className="procedure-card">
-                <CardContent>
-                  <Typography variant="h3">{selectedProcedure?.name}</Typography>
-                  <Typography>Price: {selectedProcedure?.price} $</Typography>
-                  <Typography>Duraton: {selectedProcedure?.duration} h</Typography>
-                </CardContent>
-              </Card>
             </DialogContent>
             <DialogActions>
               <Button variant="contained" type="submit">

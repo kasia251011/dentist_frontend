@@ -1,5 +1,5 @@
 import { Card, CardActionArea, Typography } from '@mui/material';
-import TOOTH_IMG from '../../../../assets/dental-care.png';
+import TOOTH_IMG from '../../../../assets/tooth (1).png';
 import { useNavigate } from 'react-router-dom';
 
 const TeethButton = () => {

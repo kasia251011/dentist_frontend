@@ -37,7 +37,6 @@ const AddToothDiagnosis = ({ toothNo }: { toothNo: number }) => {
     if (diagnosis.files && diagnosis.files.length > 0) {
       uploadFile(diagnosis.files?.[0]).then((res: any) => {
         patchParams.diagnosis.src = res.url;
-        console.log(patchParams.diagnosis.src, res.url);
         addDiagnosis(patchParams);
         handleClose();
       });

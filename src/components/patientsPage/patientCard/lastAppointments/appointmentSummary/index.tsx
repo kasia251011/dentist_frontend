@@ -7,10 +7,10 @@ const AppointmentSummary = ({ date, time, procedureId }: Appointment) => {
 
   return (
     <Box className="appointment-summary">
-      <Typography fontSize="14px" fontWeight="600">
+      <Typography fontSize="12px" fontWeight="600">
         {procedure?.name}
       </Typography>
-      <Typography fontSize="14px">{`${date} ${time}`}</Typography>
+      <Typography fontSize="12px">{`${date} ${time}`}</Typography>
     </Box>
   );
 };

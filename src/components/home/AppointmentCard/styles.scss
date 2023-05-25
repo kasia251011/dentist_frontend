@@ -1,8 +1,9 @@
 .appointment-card {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   align-items: center;
   padding: 20px;
+  box-shadow: none;
 
   .time {
     font-size: 24px;

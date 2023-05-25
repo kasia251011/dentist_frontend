@@ -1,13 +1,14 @@
 @import '../../../../styles/constants';
 
 .patient-details {
-  width: 250px;
-  background-color: $primary10;
-  padding: 40px;
+  width: 300px;
+  background-color: #F6F8F9;
+  padding: 30px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5px;
 
 
   .label {
@@ -20,7 +21,7 @@
   
   .text {
     width: 100%;
-    color: #187581;
+    color: #505050;
     padding: 5px 15px;
     border-radius: 20px;
   }

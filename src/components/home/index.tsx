@@ -8,6 +8,7 @@ import NO_APPOINTMENT_IMG from '../../assets/Calendar.svg';
 import './styles.scss';
 import dayjs, { Dayjs } from 'dayjs';
 import { SetStateAction, useState } from 'react';
+import Summary from './Summary';
 
 const Home = () => {
   const [pickedDate, setPickedDate] = useState(dayjs().startOf('date'));
@@ -20,7 +21,7 @@ const Home = () => {
       </Typography>
       <Box className="container">
         <Box className="left-container">
-          <Box className="summary"></Box>
+          <Summary />
           <Box className="header">
             <Typography variant="h2">Appointments</Typography>
             <AddAppointmentButton />

@@ -32,17 +32,13 @@ const ChangeToothState = ({ no, state }: Tooth) => {
   const { id: patientId } = useParams<string>();
 
   const changeToothState = (state: ToothState) => {
-    console.log(state);
     const updateProps: UpdateToothByPatientIdByToothNoI = {
       id: patientId ?? '1',
       toothNo: no,
       state: state
     };
-    console.log(updateProps);
     updateTooth(updateProps);
   };
-
-  console.log(state);
 
   return (
     <>

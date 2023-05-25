@@ -63,7 +63,7 @@ const theme = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          backgroundColor: '#f6feff',
+          backgroundColor: 'white',
           borderRadius: '7px',
           padding: '0 5px',
           width: '100%',
@@ -97,7 +97,8 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: '10px'
+          borderRadius: '10px',
+          boxShadow: 'none'
         }
       }
     },
@@ -121,7 +122,7 @@ const theme = createTheme({
     MuiDialog: {
       styleOverrides: {
         root: {
-          borderRadius: '20px'
+          borderRadius: '10px'
         },
         paper: {
           borderRadius: '10px'

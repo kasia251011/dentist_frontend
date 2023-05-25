@@ -42,7 +42,7 @@ const PatientsList = () => {
     <Box className="patients-list">
       <TableContainer
         component={Paper}
-        sx={{ minWidth: '550px', maxHeight: 595, borderRadius: '20px' }}>
+        sx={{ minWidth: '550px', maxHeight: 595, borderRadius: '10px' }}>
         <Table stickyHeader>
           <TableHead>
             <TableRow>

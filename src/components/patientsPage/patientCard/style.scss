@@ -1,27 +1,34 @@
 .patient-card {
-  background-color: #EEFAFC;
+  background-color: white;
   display: flex;
   border-radius: 20px;
   margin-left: 40px;
+  margin-top: 50px;
   width: 100%;
 
   .right-side{
     padding: 30px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 300px;
     
     .tooth-btn {
       border-radius: 10px;
+      background-color: #24B9CC;
+
       
       .container {
         display: flex;
         padding: 20px;
+        justify-content: flex-start;
 
         p {
           margin-left: 20px;
-          font-size: 12px;
+          font-size: 18px;
           font-weight: 700;
+          color: white;
         }
 
         img {

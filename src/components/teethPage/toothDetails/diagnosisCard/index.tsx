@@ -8,8 +8,6 @@ const DiagnosesCard = ({ diagnosis, index }: { diagnosis: Diagnosis; index: numb
   const navigate = useNavigate();
   const { index: diagnosisIndex } = useParams<string>();
 
-  console.log(diagnosis.src);
-
   return (
     <Card sx={{ minWidth: '150px', maxWidth: '200px' }}>
       <CardActionArea onClick={() => navigate(`${index}`)}>

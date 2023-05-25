@@ -14,7 +14,7 @@ const TeethPage = () => {
     <Box className="teeth-page page">
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h3">{`${patient?.name} ${patient?.surname} teeth`}</Typography>
-        <IconButton onClick={() => navigate(-1)}>
+        <IconButton onClick={() => navigate('/patients')}>
           <ClearIcon />
         </IconButton>
       </Box>
